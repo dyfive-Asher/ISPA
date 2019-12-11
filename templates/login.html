@@ -1,18 +1,62 @@
-{% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/login.css" rel="stylesheet"/>
-    <title>登录</title>
-  </head>
-  <body>
-    <div class="container">
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/static/js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Charity Hub Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+</head>
+<body>
+<!--header-->
+	<div class="header">
+	<div class="header-top">
+		<div class="container">
+
+				<div class="top-nav">
+					<span class="menu"><img src="/static/image/menu.png" alt=""> </span>
+
+						<ul>
+
+						<li><a href="/" >首页</a><span>/</span></li>
+						<li ><a href="#"  >课程</a><span>/</span></li>
+						<li><a href="#">学校</a><span>/</span></li>
+						<li class="active"><a href="{% url 'login' %}"  >登录</a><span>/</span></li>
+						<li><a href="{% url 'register' %}" >注册</a></li>
+					</ul>
+
+					<!--script-->
+				<script>
+					$("span.menu").click(function(){
+						$(".top-nav ul").slideToggle(500, function(){
+						});
+					});
+			</script>
+				</div>
+
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="logo">
+					<h1><a href="index.html">ISPA</a></h1>
+					<p>面向后发地区的云创客教育平台</p>
+				</div>
+			</div>
+		</div>
+		</div>
+<!---->
+ <div class="container">
             <div class="col">
                 <form class="form-login" action="/login/" method="post">
 
@@ -47,13 +91,5 @@
                 </form>
             </div>
     </div> <!-- /container -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    {#    以下三者的引用顺序是固定的#}
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
-    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  </body>
+ </body>
 </html>

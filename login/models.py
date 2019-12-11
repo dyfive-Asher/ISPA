@@ -5,15 +5,16 @@ from django.db import models
 
 class User(models.Model):
 
-    gender = (
-        ('male', "男"),
-        ('female', "女"),
+    idd = (
+        ('admin', "管理员"),
+        ('teacher', "教师"),
+        ('student', '学生')
     )
 
     name = models.CharField(max_length=128, unique=True)
     password = models.CharField(max_length=256)
     email = models.EmailField(unique=True)
-    sex = models.CharField(max_length=32, choices=gender, default="男")
+    id_c = models.CharField(max_length=96, choices=idd, default="学生")
     c_time = models.DateTimeField(auto_now_add=True)
     has_confirmed = models.BooleanField(default=False)
 

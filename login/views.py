@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.shortcuts import redirect
 from django.conf import settings
 from . import models
@@ -57,6 +57,7 @@ def login(request):
         if login_form.is_valid():
             username = login_form.cleaned_data.get('username')
             password = login_form.cleaned_data.get('password')
+            id_c = login_form.cleaned_data.get('id_c')
 
             try:
                 user = models.User.objects.get(name=username)
@@ -94,6 +95,7 @@ def register(request):
             username = register_form.cleaned_data.get('username')
             password1 = register_form.cleaned_data.get('password1')
             password2 = register_form.cleaned_data.get('password2')
+            id_c = register_form.cleaned_data.get('id_c')
             email = register_form.cleaned_data.get('email')
 
             if password1 != password2:
@@ -113,6 +115,7 @@ def register(request):
                 new_user.name = username
                 new_user.password = hash_code(password1)
                 new_user.email = email
+                new_user.id_c = id_c
                 new_user.save()
 
                 code = make_confirm_string(new_user)
@@ -157,3 +160,10 @@ def user_confirm(request):
         confirm.delete()
         message = '感谢确认，请使用账户登录！'
         return render(request, 'confirm.html', locals())
+
+
+def home(request):
+    context = {
+
+    }
+    return render_to_response('basic.html', context)
